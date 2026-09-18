@@ -146,6 +146,32 @@ a{
     color:var(--text);
 }
 
+.language-control{
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+
+.language-label{
+    font-size:16px;
+}
+
+#siteLanguage{
+    height:40px;
+    padding:0 10px;
+    border:1px solid var(--border);
+    border-radius:12px;
+    background:var(--surface);
+    color:var(--text);
+    outline:none;
+    cursor:pointer;
+    font-weight:700;
+}
+
+#siteLanguage:focus{
+    border-color:var(--primary);
+}
+
 .mobile-menu{
     display:none;
 }
@@ -958,17 +984,26 @@ footer{
 
         <div class="brand-text">
             <strong>CivicFix AI</strong>
-            <span>Report. Route. Resolve.</span>
+            <span><span data-i18n="Report. Route. Resolve.">Report. Route. Resolve.</span></span>
         </div>
     </a>
 
     <div class="nav-right">
 
         <div class="nav-links">
-            <a href="#home">Home</a>
-            <a href="#about">Platform</a>
-            <a href="#report">Report</a>
-            <a href="#track">Track</a>
+            <a href="#home"><span data-i18n="Home">Home</span></a>
+            <a href="#about"><span data-i18n="Platform">Platform</span></a>
+            <a href="#report"><span data-i18n="Report">Report</span></a>
+            <a href="#track"><span data-i18n="Track">Track</span></a>
+        </div>
+
+        <div class="language-control">
+            <label for="siteLanguage" class="language-label">🌐</label>
+            <select id="siteLanguage" aria-label="Select language" onchange="changeLanguage(this.value)">
+                <option value="en">English</option>
+                <option value="ta">தமிழ்</option>
+                <option value="hi">हिन्दी</option>
+            </select>
         </div>
 
         <button
@@ -997,16 +1032,16 @@ footer{
 
         <div class="status-pill">
             <span class="status-dot"></span>
-            AI MUNICIPAL SERVICE PLATFORM
+            <span data-i18n="AI MUNICIPAL SERVICE PLATFORM">AI MUNICIPAL SERVICE PLATFORM</span>
         </div>
 
         <h1>
-            Report problems.<br>
-            <span>Get them resolved.</span>
+            <span data-i18n="Report problems.">Report problems.</span><br>
+            <span><span data-i18n="Get them resolved.">Get them resolved.</span></span>
         </h1>
 
         <p>
-            <b>Your Problem. Our AI. A Better City.</b><br>
+            <b><span data-i18n="Your Problem. Our AI. A Better City.">Your Problem. Our AI. A Better City.</span></b><br>
             CivicFix AI transforms citizen complaints into intelligent,
             prioritized and department-routed service requests using
             automated AI workflows.
@@ -1017,13 +1052,13 @@ footer{
             <button
                 class="btn btn-primary"
                 onclick="scrollToSection('report')">
-                Report a Complaint →
+                <span data-i18n="Report a Complaint →">Report a Complaint →</span>
             </button>
 
             <button
                 class="btn btn-secondary"
                 onclick="scrollToSection('track')">
-                Track Complaint
+                <span data-i18n="Track Complaint">Track Complaint</span>
             </button>
 
         </div>
@@ -1035,48 +1070,48 @@ footer{
 
         <div class="command-head">
 
-            <strong>AI Operations Center</strong>
+            <strong><span data-i18n="AI Operations Center">AI Operations Center</span></strong>
 
             <span class="online">
-                ● ONLINE
+                <span data-i18n="● ONLINE">● ONLINE</span>
             </span>
 
         </div>
 
         <div class="command-item">
             <div>
-                AI Classification
-                <small>Ollama intelligence</small>
+                <span data-i18n="AI Classification">AI Classification</span>
+                <small><span data-i18n="Ollama intelligence">Ollama intelligence</span></small>
             </div>
 
-            <span class="command-value">ACTIVE</span>
+            <span class="command-value"><span data-i18n="ACTIVE">ACTIVE</span></span>
         </div>
 
         <div class="command-item">
             <div>
-                Smart Routing
-                <small>Department assignment</small>
+                <span data-i18n="Smart Routing">Smart Routing</span>
+                <small><span data-i18n="Department assignment">Department assignment</span></small>
             </div>
 
-            <span class="command-value">ACTIVE</span>
+            <span class="command-value"><span data-i18n="ACTIVE">ACTIVE</span></span>
         </div>
 
         <div class="command-item">
             <div>
-                SLA Monitoring
-                <small>Deadline protection</small>
+                <span data-i18n="SLA Monitoring">SLA Monitoring</span>
+                <small><span data-i18n="Deadline protection">Deadline protection</span></small>
             </div>
 
-            <span class="command-value">ACTIVE</span>
+            <span class="command-value"><span data-i18n="ACTIVE">ACTIVE</span></span>
         </div>
 
         <div class="command-item">
             <div>
-                Escalation Engine
-                <small>Automatic escalation</small>
+                <span data-i18n="Escalation Engine">Escalation Engine</span>
+                <small><span data-i18n="Automatic escalation">Automatic escalation</span></small>
             </div>
 
-            <span class="command-value">READY</span>
+            <span class="command-value"><span data-i18n="READY">READY</span></span>
         </div>
 
     </div>
@@ -1096,7 +1131,7 @@ footer{
             </div>
 
             <div class="stat-number" id="statComplaints">0</div>
-            <div class="stat-label">Complaints Submitted</div>
+            <div class="stat-label"><span data-i18n="Complaints Submitted">Complaints Submitted</span></div>
         </div>
 
 
@@ -1106,7 +1141,7 @@ footer{
             </div>
 
             <div class="stat-number">100%</div>
-            <div class="stat-label">AI Processing</div>
+            <div class="stat-label"><span data-i18n="AI Processing">AI Processing</span></div>
         </div>
 
 
@@ -1115,8 +1150,8 @@ footer{
                 <span class="stat-icon">SLA</span>
             </div>
 
-            <div class="stat-number">24/7</div>
-            <div class="stat-label">SLA Monitoring</div>
+            <div class="stat-number"><span data-i18n="24/7">24/7</span></div>
+            <div class="stat-label"><span data-i18n="SLA Monitoring">SLA Monitoring</span></div>
         </div>
 
 
@@ -1126,7 +1161,7 @@ footer{
             </div>
 
             <div class="stat-number">AUTO</div>
-            <div class="stat-label">Department Routing</div>
+            <div class="stat-label"><span data-i18n="Department Routing">Department Routing</span></div>
         </div>
 
     </div>
@@ -1140,7 +1175,7 @@ footer{
 
     <div class="section-title">
 
-        <h2>One intelligent workflow</h2>
+        <h2><span data-i18n="One intelligent workflow">One intelligent workflow</span></h2>
 
         <p>
             From citizen report to department resolution,
@@ -1156,7 +1191,7 @@ footer{
 
             <div class="feature-icon">01</div>
 
-            <h3>Smart Intake</h3>
+            <h3><span data-i18n="Smart Intake">Smart Intake</span></h3>
 
             <p>
                 Citizens submit complaints with contact details,
@@ -1170,7 +1205,7 @@ footer{
 
             <div class="feature-icon">AI</div>
 
-            <h3>Local AI Intelligence</h3>
+            <h3><span data-i18n="Local AI Intelligence">Local AI Intelligence</span></h3>
 
             <p>
                 Ollama analyzes the complaint and determines
@@ -1184,7 +1219,7 @@ footer{
 
             <div class="feature-icon">03</div>
 
-            <h3>Automated Resolution</h3>
+            <h3><span data-i18n="Automated Resolution">Automated Resolution</span></h3>
 
             <p>
                 n8n routes complaints, stores records, monitors SLA deadlines,
@@ -1204,10 +1239,10 @@ footer{
 
     <div class="section-title">
 
-        <h2>Report a Municipal Issue</h2>
+        <h2><span data-i18n="Report a Municipal Issue">Report a Municipal Issue</span></h2>
 
         <p>
-            Submit your complaint. CivicFix AI will analyze and route it automatically.
+            <span data-i18n="Submit your complaint. CivicFix AI will analyze and route it automatically.">Submit your complaint. CivicFix AI will analyze and route it automatically.</span>
         </p>
 
     </div>
@@ -1217,10 +1252,10 @@ footer{
 
         <div class="form-top">
 
-            <h2>Complaint Intake</h2>
+            <h2><span data-i18n="Complaint Intake">Complaint Intake</span></h2>
 
             <p>
-                Complete the steps below. Required fields are marked with *.
+                <span data-i18n="Complete the steps below. Required fields are marked with *.">Complete the steps below. Required fields are marked with *.</span>
             </p>
 
         </div>
@@ -1249,14 +1284,14 @@ footer{
                         <div class="field">
 
                             <label>
-                                Citizen Name *
+                                <span data-i18n="Citizen Name *">Citizen Name *</span>
                             </label>
 
                             <input
                                 id="citizen_name"
                                 name="citizen_name"
                                 type="text"
-                                placeholder="Enter your full name"
+                                placeholder="Enter your full name" data-i18n-placeholder="Enter your full name"
                                 required>
 
                         </div>
@@ -1265,14 +1300,14 @@ footer{
                         <div class="field">
 
                             <label>
-                                Phone Number
+                                <span data-i18n="Phone Number">Phone Number</span>
                             </label>
 
                             <input
                                 id="phone_number"
                                 name="phone_number"
                                 type="tel"
-                                placeholder="+91 XXXXX XXXXX">
+                                placeholder="+91 XXXXX XXXXX" data-i18n-placeholder="+91 XXXXX XXXXX">
 
                         </div>
 
@@ -1280,14 +1315,14 @@ footer{
                         <div class="field">
 
                             <label>
-                                Email *
+                                <span data-i18n="Email *">Email *</span>
                             </label>
 
                             <input
                                 id="email"
                                 name="email"
                                 type="email"
-                                placeholder="name@example.com"
+                                placeholder="name@example.com" data-i18n-placeholder="name@example.com"
                                 required>
 
                         </div>
@@ -1296,7 +1331,7 @@ footer{
                         <div class="field">
 
                             <label>
-                                Preferred Language
+                                <span data-i18n="Preferred Language">Preferred Language</span>
                             </label>
 
                             <select id="language" name="language">
@@ -1332,7 +1367,7 @@ footer{
                             type="button"
                             class="btn btn-primary"
                             onclick="nextStep(2)">
-                            Continue →
+                            <span data-i18n="Continue →">Continue →</span>
                         </button>
 
                     </div>
@@ -1349,13 +1384,13 @@ footer{
                         <div class="field full">
 
                             <label>
-                                Complaint Description *
+                                <span data-i18n="Complaint Description *">Complaint Description *</span>
                             </label>
 
                             <textarea
                                 id="complaint"
                                 name="complaint"
-                                placeholder="Describe the municipal problem in detail..."
+                                placeholder="Describe the municipal problem in detail..." data-i18n-placeholder="Describe the municipal problem in detail..."
                                 required></textarea>
 
                             <span class="helper">
@@ -1369,7 +1404,7 @@ footer{
                         <div class="field full">
 
                             <label>
-                                Location
+                                <span data-i18n="Location">Location</span>
                             </label>
 
                             <div class="location-row">
@@ -1378,13 +1413,13 @@ footer{
                                     id="location"
                                     name="location"
                                     type="text"
-                                    placeholder="Street, area, landmark...">
+                                    placeholder="Street, area, landmark..." data-i18n-placeholder="Street, area, landmark...">
 
                                 <button
                                     type="button"
                                     class="btn btn-secondary"
                                     onclick="getLocation()">
-                                    📍 GPS
+                                    <span data-i18n="📍 GPS">📍 GPS</span>
                                 </button>
 
                             </div>
@@ -1392,7 +1427,7 @@ footer{
                             <span
                                 class="helper"
                                 id="locationStatus">
-                                GPS location is optional.
+                                <span data-i18n="GPS location is optional.">GPS location is optional.</span>
                             </span>
 
                         </div>
@@ -1401,7 +1436,7 @@ footer{
                         <div class="field">
 
                             <label>
-                                Source
+                                <span data-i18n="Source">Source</span>
                             </label>
 
                             <select id="source" name="source">
@@ -1437,7 +1472,7 @@ footer{
                                 class="file-drop"
                                 onclick="document.getElementById('photo').click()">
 
-                                📷 Click to upload evidence
+                                <span data-i18n="📷 Click to upload evidence">📷 Click to upload evidence</span>
 
                                 <input
                                     id="photo"
@@ -1462,14 +1497,14 @@ footer{
                             type="button"
                             class="btn btn-secondary"
                             onclick="nextStep(1)">
-                            ← Back
+                            <span data-i18n="← Back">← Back</span>
                         </button>
 
                         <button
                             type="button"
                             class="btn btn-primary"
                             onclick="validateStep2()">
-                            Review →
+                            <span data-i18n="Review →">Review →</span>
                         </button>
 
                     </div>
@@ -1483,10 +1518,10 @@ footer{
 
                     <div class="ai-summary">
 
-                        <h4>Review Complaint</h4>
+                        <h4><span data-i18n="Review Complaint">Review Complaint</span></h4>
 
                         <p id="reviewText">
-                            Review your information before submitting.
+                            <span data-i18n="Review your information before submitting.">Review your information before submitting.</span>
                         </p>
 
                     </div>
@@ -1496,7 +1531,7 @@ footer{
 
                         <div class="ai-box">
 
-                            <small>Citizen</small>
+                            <small><span data-i18n="Citizen">Citizen</span></small>
 
                             <strong id="reviewCitizen">
                                 -
@@ -1518,10 +1553,10 @@ footer{
 
                         <div class="ai-box">
 
-                            <small>Location</small>
+                            <small><span data-i18n="Location">Location</span></small>
 
                             <strong id="reviewLocation">
-                                Not provided
+                                <span data-i18n="Not provided">Not provided</span>
                             </strong>
 
                         </div>
@@ -1535,14 +1570,14 @@ footer{
                             type="button"
                             class="btn btn-secondary"
                             onclick="nextStep(2)">
-                            ← Back
+                            <span data-i18n="← Back">← Back</span>
                         </button>
 
                         <button
                             type="submit"
                             class="btn btn-primary"
                             id="submitBtn">
-                            Submit to CivicFix AI →
+                            <span data-i18n="Submit to CivicFix AI →">Submit to CivicFix AI →</span>
                         </button>
 
                     </div>
@@ -1558,10 +1593,10 @@ footer{
 
                 <div class="ai-loader"></div>
 
-                <h3>CivicFix AI is processing your complaint</h3>
+                <h3><span data-i18n="CivicFix AI is processing your complaint">CivicFix AI is processing your complaint</span></h3>
 
                 <p class="ai-status" id="aiStatus">
-                    Connecting to municipal AI workflow...
+                    <span data-i18n="Connecting to municipal AI workflow...">Connecting to municipal AI workflow...</span>
                 </p>
 
             </div>
@@ -1578,9 +1613,9 @@ footer{
                     </div>
 
                     <div>
-                        <h2>Complaint Registered</h2>
+                        <h2><span data-i18n="Complaint Registered">Complaint Registered</span></h2>
                         <p style="color:var(--muted)">
-                            Your complaint has entered the CivicFix workflow.
+                            <span data-i18n="Your complaint has entered the CivicFix workflow.">Your complaint has entered the CivicFix workflow.</span>
                         </p>
                     </div>
 
@@ -1589,7 +1624,7 @@ footer{
 
                 <div class="complaint-code">
 
-                    <small>Complaint ID</small>
+                    <small><span data-i18n="Complaint ID">Complaint ID</span></small>
 
                     <strong id="complaintId">
                         CF-PROCESSING
@@ -1602,10 +1637,10 @@ footer{
 
                     <div class="ai-box">
 
-                        <small>Category</small>
+                        <small><span data-i18n="Category">Category</span></small>
 
                         <strong id="resultCategory">
-                            Processing...
+                            <span data-i18n="Processing...">Processing...</span>
                         </strong>
 
                     </div>
@@ -1613,10 +1648,10 @@ footer{
 
                     <div class="ai-box">
 
-                        <small>Department</small>
+                        <small><span data-i18n="Department">Department</span></small>
 
                         <strong id="resultDepartment">
-                            Processing...
+                            <span data-i18n="Processing...">Processing...</span>
                         </strong>
 
                     </div>
@@ -1624,10 +1659,10 @@ footer{
 
                     <div class="ai-box">
 
-                        <small>Priority</small>
+                        <small><span data-i18n="Priority">Priority</span></small>
 
                         <strong id="resultPriority">
-                            Processing...
+                            <span data-i18n="Processing...">Processing...</span>
                         </strong>
 
                     </div>
@@ -1635,10 +1670,10 @@ footer{
 
                     <div class="ai-box">
 
-                        <small>Risk Level</small>
+                        <small><span data-i18n="Risk Level">Risk Level</span></small>
 
                         <strong id="resultRisk">
-                            Processing...
+                            <span data-i18n="Processing...">Processing...</span>
                         </strong>
 
                     </div>
@@ -1646,7 +1681,7 @@ footer{
 
                     <div class="ai-box">
 
-                        <small>AI Confidence</small>
+                        <small><span data-i18n="AI Confidence">AI Confidence</span></small>
 
                         <strong id="resultConfidence">
                             -
@@ -1657,10 +1692,10 @@ footer{
 
                     <div class="ai-box">
 
-                        <small>Status</small>
+                        <small><span data-i18n="Status">Status</span></small>
 
                         <strong id="resultStatus">
-                            Pending
+                            <span data-i18n="Pending">Pending</span>
                         </strong>
 
                     </div>
@@ -1670,10 +1705,10 @@ footer{
 
                 <div class="ai-summary">
 
-                    <h4>AI Summary</h4>
+                    <h4><span data-i18n="AI Summary">AI Summary</span></h4>
 
                     <p id="resultSummary">
-                        AI analysis will appear here.
+                        <span data-i18n="AI analysis will appear here.">AI analysis will appear here.</span>
                     </p>
 
                 </div>
@@ -1681,10 +1716,10 @@ footer{
 
                 <div class="ai-summary">
 
-                    <h4>Recommended Action</h4>
+                    <h4><span data-i18n="Recommended Action">Recommended Action</span></h4>
 
                     <p id="resultAction">
-                        Department action will appear here.
+                        <span data-i18n="Department action will appear here.">Department action will appear here.</span>
                     </p>
 
                 </div>
@@ -1695,13 +1730,13 @@ footer{
                     <button
                         class="btn btn-primary"
                         onclick="resetComplaint()">
-                        Submit Another Complaint
+                        <span data-i18n="Submit Another Complaint">Submit Another Complaint</span>
                     </button>
 
                     <button
                         class="btn btn-secondary"
                         onclick="scrollToSection('track')">
-                        Track Complaint
+                        <span data-i18n="Track Complaint">Track Complaint</span>
                     </button>
 
                 </div>
@@ -1721,10 +1756,10 @@ footer{
 
     <div class="section-title">
 
-        <h2>Track Your Complaint</h2>
+        <h2><span data-i18n="Track Your Complaint">Track Your Complaint</span></h2>
 
         <p>
-            Enter your CivicFix Complaint ID to retrieve the latest status.
+            <span data-i18n="Enter your CivicFix Complaint ID to retrieve the latest status.">Enter your CivicFix Complaint ID to retrieve the latest status.</span>
         </p>
 
     </div>
@@ -1736,13 +1771,13 @@ footer{
 
             <input
                 id="trackId"
-                placeholder="Example: CF-20260908-A7K2">
+                placeholder="Example: CF-20260908-A7K2" data-i18n-placeholder="Example: CF-20260908-A7K2">
 
             <button
                 class="btn btn-primary"
                 id="trackBtn"
                 onclick="trackComplaint()">
-                Track Complaint
+                <span data-i18n="Track Complaint">Track Complaint</span>
             </button>
 
         </div>
@@ -1765,29 +1800,29 @@ footer{
             <div class="track-summary">
 
                 <div class="track-box">
-                    <small>Complaint ID</small>
+                    <small><span data-i18n="Complaint ID">Complaint ID</span></small>
                     <strong id="trackComplaintId">-</strong>
                 </div>
 
                 <div class="track-box">
-                    <small>Department</small>
+                    <small><span data-i18n="Department">Department</span></small>
                     <strong id="trackDepartment">-</strong>
                 </div>
 
                 <div class="track-box">
-                    <small>Priority</small>
+                    <small><span data-i18n="Priority">Priority</span></small>
                     <strong id="trackPriority">-</strong>
                 </div>
 
                 <div class="track-box">
-                    <small>Status</small>
+                    <small><span data-i18n="Status">Status</span></small>
                     <strong id="trackStatus">-</strong>
                 </div>
 
             </div>
 
 
-            <h3>Complaint Timeline</h3>
+            <h3><span data-i18n="Complaint Timeline">Complaint Timeline</span></h3>
 
             <div class="timeline">
 
@@ -1795,10 +1830,10 @@ footer{
 
                     <span class="timeline-dot"></span>
 
-                    <strong>Complaint Submitted</strong>
+                    <strong><span data-i18n="Complaint Submitted">Complaint Submitted</span></strong>
 
                     <small id="trackCreated">
-                        Complaint received by CivicFix
+                        <span data-i18n="Complaint received by CivicFix">Complaint received by CivicFix</span>
                     </small>
 
                 </div>
@@ -1808,10 +1843,10 @@ footer{
 
                     <span class="timeline-dot"></span>
 
-                    <strong>AI Analysis</strong>
+                    <strong><span data-i18n="AI Analysis">AI Analysis</span></strong>
 
                     <small>
-                        Complaint classified and evaluated
+                        <span data-i18n="Complaint classified and evaluated">Complaint classified and evaluated</span>
                     </small>
 
                 </div>
@@ -1821,10 +1856,10 @@ footer{
 
                     <span class="timeline-dot"></span>
 
-                    <strong>Department Processing</strong>
+                    <strong><span data-i18n="Department Processing">Department Processing</span></strong>
 
                     <small id="trackDepartmentTimeline">
-                        Assigned department is processing the request
+                        <span data-i18n="Assigned department is processing the request">Assigned department is processing the request</span>
                     </small>
 
                 </div>
@@ -1834,10 +1869,10 @@ footer{
 
                     <span class="timeline-dot"></span>
 
-                    <strong>Resolution</strong>
+                    <strong><span data-i18n="Resolution">Resolution</span></strong>
 
                     <small>
-                        Awaiting final resolution
+                        <span data-i18n="Awaiting final resolution">Awaiting final resolution</span>
                     </small>
 
                 </div>
@@ -1862,7 +1897,7 @@ footer{
             <h2>CivicFix AI</h2>
 
             <p>
-                Report. Route. Resolve.
+                <span data-i18n="Report. Route. Resolve.">Report. Route. Resolve.</span>
             </p>
 
         </div>
@@ -1870,12 +1905,12 @@ footer{
         <div>
 
             <p>
-                Advanced AI Municipal Complaint Management
+                <span data-i18n="Advanced AI Municipal Complaint Management">Advanced AI Municipal Complaint Management</span>
             </p>
 
             <p>
-                n8n + Ollama + Google Sheets <br><br>
-                Development By Gokul & Dharaneesh
+                <span data-i18n="n8n + Ollama + Google Sheets">n8n + Ollama + Google Sheets</span> <br><br>
+                <span data-i18n="Development By Gokul &amp; Dharaneesh">Development By Gokul &amp; Dharaneesh</span>
             </p>
 
         </div>
@@ -1925,6 +1960,73 @@ const TRACK_WEBHOOK =
 
 let currentStep = 1;
 
+
+/* =========================================================
+   MULTI-LANGUAGE SUPPORT
+========================================================= */
+
+const translations = {"en": {"Report. Route. Resolve.": "Report. Route. Resolve.", "Home": "Home", "Platform": "Platform", "Report": "Report", "Track": "Track", "AI MUNICIPAL SERVICE PLATFORM": "AI MUNICIPAL SERVICE PLATFORM", "Report problems.": "Report problems.", "Get them resolved.": "Get them resolved.", "Your Problem. Our AI. A Better City.": "Your Problem. Our AI. A Better City.", " CivicFix AI transforms citizen complaints into intelligent,": " CivicFix AI transforms citizen complaints into intelligent,", "prioritized and department-routed service requests using": "prioritized and department-routed service requests using", "automated AI workflows.": "automated AI workflows.", "Report a Complaint →": "Report a Complaint →", "Track Complaint": "Track Complaint", "AI Operations Center": "AI Operations Center", "● ONLINE": "● ONLINE", "AI Classification": "AI Classification", "Ollama intelligence": "Ollama intelligence", "Smart Routing": "Smart Routing", "Department assignment": "Department assignment", "SLA Monitoring": "SLA Monitoring", "Deadline protection": "Deadline protection", "Escalation Engine": "Escalation Engine", "Automatic escalation": "Automatic escalation", "ACTIVE": "ACTIVE", "READY": "READY", "Complaints Submitted": "Complaints Submitted", "AI Processing": "AI Processing", "24/7": "24/7", "Department Routing": "Department Routing", "One intelligent workflow": "One intelligent workflow", "From citizen report to department resolution,": "From citizen report to department resolution,", "CivicFix automates the complete municipal complaint lifecycle.": "CivicFix automates the complete municipal complaint lifecycle.", "Smart Intake": "Smart Intake", "Citizens submit complaints with contact details,": "Citizens submit complaints with contact details,", "location, language and optional photographic evidence.": "location, language and optional photographic evidence.", "Local AI Intelligence": "Local AI Intelligence", "Ollama analyzes the complaint and determines": "Ollama analyzes the complaint and determines", "category, department, priority, risk and recommended action.": "category, department, priority, risk and recommended action.", "Automated Resolution": "Automated Resolution", "n8n routes complaints, stores records, monitors SLA deadlines,": "n8n routes complaints, stores records, monitors SLA deadlines,", "sends notifications and escalates delayed cases.": "sends notifications and escalates delayed cases.", "Report a Municipal Issue": "Report a Municipal Issue", "Submit your complaint. CivicFix AI will analyze and route it automatically.": "Submit your complaint. CivicFix AI will analyze and route it automatically.", "Complaint Intake": "Complaint Intake", "Complete the steps below. Required fields are marked with *.": "Complete the steps below. Required fields are marked with *.", "Citizen Name *": "Citizen Name *", "Enter your full name": "Enter your full name", "Phone Number": "Phone Number", "+91 XXXXX XXXXX": "+91 XXXXX XXXXX", "Email *": "Email *", "name@example.com": "name@example.com", "Preferred Language": "Preferred Language", "English": "English", "Tamil": "Tamil", "Hindi": "Hindi", "Other": "Other", "Continue →": "Continue →", "Complaint Description *": "Complaint Description *", "Describe the municipal problem in detail...": "Describe the municipal problem in detail...", "Tip: Include what happened, where it happened,": "Tip: Include what happened, where it happened,", "and how it affects citizens.": "and how it affects citizens.", "Location": "Location", "Street, area, landmark...": "Street, area, landmark...", "📍 GPS": "📍 GPS", "GPS location is optional.": "GPS location is optional.", "Source": "Source", "Web Portal": "Web Portal", "Mobile": "Mobile", "Voice": "Voice", "📷 Click to upload evidence": "📷 Click to upload evidence", "← Back": "← Back", "Review →": "Review →", "Review Complaint": "Review Complaint", "Review your information before submitting.": "Review your information before submitting.", "Citizen": "Citizen", "Not provided": "Not provided", "Submit to CivicFix AI →": "Submit to CivicFix AI →", "CivicFix AI is processing your complaint": "CivicFix AI is processing your complaint", "Connecting to municipal AI workflow...": "Connecting to municipal AI workflow...", "Complaint Registered": "Complaint Registered", "Your complaint has entered the CivicFix workflow.": "Your complaint has entered the CivicFix workflow.", "Complaint ID": "Complaint ID", "Processing...": "Processing...", "Category": "Category", "Department": "Department", "Priority": "Priority", "Risk Level": "Risk Level", "AI Confidence": "AI Confidence", "Status": "Status", "Pending": "Pending", "AI Summary": "AI Summary", "AI analysis will appear here.": "AI analysis will appear here.", "Recommended Action": "Recommended Action", "Department action will appear here.": "Department action will appear here.", "Submit Another Complaint": "Submit Another Complaint", "Track Your Complaint": "Track Your Complaint", "Enter your CivicFix Complaint ID to retrieve the latest status.": "Enter your CivicFix Complaint ID to retrieve the latest status.", "Example: CF-20260908-A7K2": "Example: CF-20260908-A7K2", "Complaint Timeline": "Complaint Timeline", "Complaint Submitted": "Complaint Submitted", "Complaint received by CivicFix": "Complaint received by CivicFix", "AI Analysis": "AI Analysis", "Complaint classified and evaluated": "Complaint classified and evaluated", "Department Processing": "Department Processing", "Assigned department is processing the request": "Assigned department is processing the request", "Resolution": "Resolution", "Awaiting final resolution": "Awaiting final resolution", "Advanced AI Municipal Complaint Management": "Advanced AI Municipal Complaint Management", "n8n + Ollama + Google Sheets": "n8n + Ollama + Google Sheets", "Development By Gokul & Dharaneesh": "Development By Gokul & Dharaneesh"}, "ta": {"Report. Route. Resolve.": "புகாரளி. வழிமாற்று. தீர்வு காண்.", "Home": "முகப்பு", "Platform": "தளம்", "Report": "புகார்", "Track": "கண்காணி", "AI MUNICIPAL SERVICE PLATFORM": "AI நகராட்சி சேவை தளம்", "Report problems.": "பிரச்சினைகளைப் புகாரளிக்கவும்.", "Get them resolved.": "தீர்வு பெறுங்கள்.", "Your Problem. Our AI. A Better City.": "உங்கள் பிரச்சினை. எங்கள் AI. சிறந்த நகரம்.", " CivicFix AI transforms citizen complaints into intelligent,": "CivicFix AI குடிமக்களின் புகார்களை புத்திசாலித்தனமான,", "prioritized and department-routed service requests using": "முன்னுரிமைப்படுத்தப்பட்ட துறை சார்ந்த சேவை கோரிக்கைகளாக", "automated AI workflows.": "தானியங்கி AI பணிப்பாய்வுகள் மூலம் மாற்றுகிறது.", "Report a Complaint →": "புகாரளிக்கவும் →", "Track Complaint": "புகாரைக் கண்காணிக்கவும்", "AI Operations Center": "AI செயல்பாட்டு மையம்", "● ONLINE": "● ஆன்லைன்", "AI Classification": "AI வகைப்படுத்தல்", "Ollama intelligence": "Ollama நுண்ணறிவு", "Smart Routing": "ஸ்மார்ட் வழிமாற்றம்", "Department assignment": "துறை ஒதுக்கீடு", "SLA Monitoring": "SLA கண்காணிப்பு", "Deadline protection": "காலக்கெடு பாதுகாப்பு", "Escalation Engine": "தானியங்கி உயர்த்தல்", "Automatic escalation": "தானியங்கி உயர்த்தல்", "ACTIVE": "செயலில்", "READY": "தயார்", "Complaints Submitted": "சமர்ப்பிக்கப்பட்ட புகார்கள்", "AI Processing": "AI செயலாக்கம்", "Department Routing": "துறை வழிமாற்றம்", "One intelligent workflow": "ஒரே புத்திசாலித்தனமான பணிப்பாய்வு", "From citizen report to department resolution,": "குடிமக்கள் புகாரிலிருந்து துறை தீர்வு வரை,", "CivicFix automates the complete municipal complaint lifecycle.": "CivicFix முழு நகராட்சி புகார் செயல்முறையையும் தானியங்குபடுத்துகிறது.", "Smart Intake": "ஸ்மார்ட் பதிவு", "Citizens submit complaints with contact details,": "குடிமக்கள் தொடர்பு விவரங்களுடன் புகார்களை சமர்ப்பிக்கலாம்,", "location, language and optional photographic evidence.": "இடம், மொழி மற்றும் விருப்ப புகைப்பட ஆதாரத்துடன்.", "Local AI Intelligence": "உள்ளூர் AI நுண்ணறிவு", "Ollama analyzes the complaint and determines": "Ollama புகாரை பகுப்பாய்வு செய்து", "category, department, priority, risk and recommended action.": "வகை, துறை, முன்னுரிமை, ஆபத்து மற்றும் பரிந்துரைக்கப்பட்ட நடவடிக்கையை தீர்மானிக்கிறது.", "Automated Resolution": "தானியங்கி தீர்வு", "n8n routes complaints, stores records, monitors SLA deadlines,": "n8n புகார்களை வழிமாற்றி, பதிவுகளை சேமித்து, SLA காலக்கெடுவை கண்காணித்து,", "sends notifications and escalates delayed cases.": "அறிவிப்புகளை அனுப்பி, தாமதமான வழக்குகளை உயர்த்துகிறது.", "Report a Municipal Issue": "நகராட்சி பிரச்சினையைப் புகாரளிக்கவும்", "Submit your complaint. CivicFix AI will analyze and route it automatically.": "உங்கள் புகாரை சமர்ப்பிக்கவும். CivicFix AI அதை பகுப்பாய்வு செய்து தானாக வழிமாற்றும்.", "Complaint Intake": "புகார் பதிவு", "Complete the steps below. Required fields are marked with *.": "கீழே உள்ள படிகளை முடிக்கவும். * குறியிட்டவை கட்டாய புலங்கள்.", "Citizen Name *": "குடிமகன் பெயர் *", "Enter your full name": "உங்கள் முழுப் பெயரை உள்ளிடவும்", "Phone Number": "தொலைபேசி எண்", "Email *": "மின்னஞ்சல் *", "Preferred Language": "விருப்ப மொழி", "English": "ஆங்கிலம்", "Tamil": "தமிழ்", "Hindi": "இந்தி", "Other": "மற்றவை", "Continue →": "தொடரவும் →", "Complaint Description *": "புகார் விவரம் *", "Describe the municipal problem in detail...": "நகராட்சி பிரச்சினையை விரிவாக விவரிக்கவும்...", "Tip: Include what happened, where it happened,": "குறிப்பு: என்ன நடந்தது, எங்கு நடந்தது", "and how it affects citizens.": "மற்றும் அது மக்களை எவ்வாறு பாதிக்கிறது என்பதையும் குறிப்பிடவும்.", "Location": "இடம்", "Street, area, landmark...": "தெரு, பகுதி, அடையாள இடம்...", "📍 GPS": "📍 GPS", "GPS location is optional.": "GPS இருப்பிடம் விருப்பமானது.", "Source": "மூலம்", "Web Portal": "வலைத்தளம்", "Mobile": "மொபைல்", "Voice": "குரல்", "📷 Click to upload evidence": "📷 ஆதாரத்தை பதிவேற்ற கிளிக் செய்யவும்", "← Back": "← பின்செல்", "Review →": "மதிப்பாய்வு →", "Review Complaint": "புகாரை மதிப்பாய்வு செய்யவும்", "Review your information before submitting.": "சமர்ப்பிப்பதற்கு முன் உங்கள் தகவலை சரிபார்க்கவும்.", "Citizen": "குடிமகன்", "Not provided": "வழங்கப்படவில்லை", "Submit to CivicFix AI →": "CivicFix AI-க்கு சமர்ப்பிக்கவும் →", "CivicFix AI is processing your complaint": "CivicFix AI உங்கள் புகாரை செயலாக்குகிறது", "Connecting to municipal AI workflow...": "நகராட்சி AI பணிப்பாய்வுடன் இணைக்கிறது...", "Complaint Registered": "புகார் பதிவு செய்யப்பட்டது", "Your complaint has entered the CivicFix workflow.": "உங்கள் புகார் CivicFix பணிப்பாய்வில் சேர்க்கப்பட்டுள்ளது.", "Complaint ID": "புகார் ID", "Processing...": "செயலாக்கப்படுகிறது...", "Category": "வகை", "Department": "துறை", "Priority": "முன்னுரிமை", "Risk Level": "ஆபத்து நிலை", "AI Confidence": "AI நம்பகத்தன்மை", "Status": "நிலை", "Pending": "நிலுவையில்", "AI Summary": "AI சுருக்கம்", "AI analysis will appear here.": "AI பகுப்பாய்வு இங்கே தோன்றும்.", "Recommended Action": "பரிந்துரைக்கப்பட்ட நடவடிக்கை", "Department action will appear here.": "துறை நடவடிக்கை இங்கே தோன்றும்.", "Submit Another Complaint": "மற்றொரு புகாரை சமர்ப்பிக்கவும்", "Track Your Complaint": "உங்கள் புகாரைக் கண்காணிக்கவும்", "Enter your CivicFix Complaint ID to retrieve the latest status.": "சமீபத்திய நிலையைப் பெற உங்கள் CivicFix புகார் ID-ஐ உள்ளிடவும்.", "Example: CF-20260908-A7K2": "எடுத்துக்காட்டு: CF-20260908-A7K2", "Complaint Timeline": "புகார் காலவரிசை", "Complaint Submitted": "புகார் சமர்ப்பிக்கப்பட்டது", "Complaint received by CivicFix": "CivicFix மூலம் புகார் பெறப்பட்டது", "AI Analysis": "AI பகுப்பாய்வு", "Complaint classified and evaluated": "புகார் வகைப்படுத்தப்பட்டு மதிப்பிடப்பட்டது", "Department Processing": "துறை செயலாக்கம்", "Assigned department is processing the request": "ஒதுக்கப்பட்ட துறை கோரிக்கையை செயலாக்குகிறது", "Resolution": "தீர்வு", "Awaiting final resolution": "இறுதி தீர்வுக்காக காத்திருக்கிறது", "Advanced AI Municipal Complaint Management": "மேம்பட்ட AI நகராட்சி புகார் மேலாண்மை", "Development By Gokul & Dharaneesh": "Gokul & Dharaneesh உருவாக்கம்"}, "hi": {"Report. Route. Resolve.": "रिपोर्ट करें। रूट करें। समाधान करें।", "Home": "होम", "Platform": "प्लेटफ़ॉर्म", "Report": "रिपोर्ट", "Track": "ट्रैक", "AI MUNICIPAL SERVICE PLATFORM": "AI नगर सेवा प्लेटफ़ॉर्म", "Report problems.": "समस्याओं की रिपोर्ट करें।", "Get them resolved.": "उनका समाधान पाएं।", "Your Problem. Our AI. A Better City.": "आपकी समस्या। हमारा AI। एक बेहतर शहर।", " CivicFix AI transforms citizen complaints into intelligent,": "CivicFix AI नागरिक शिकायतों को बुद्धिमान,", "prioritized and department-routed service requests using": "प्राथमिकता वाली और विभाग को भेजी गई सेवा अनुरोधों में", "automated AI workflows.": "स्वचालित AI वर्कफ़्लो का उपयोग करके बदलता है।", "Report a Complaint →": "शिकायत दर्ज करें →", "Track Complaint": "शिकायत ट्रैक करें", "AI Operations Center": "AI संचालन केंद्र", "● ONLINE": "● ऑनलाइन", "AI Classification": "AI वर्गीकरण", "Ollama intelligence": "Ollama इंटेलिजेंस", "Smart Routing": "स्मार्ट रूटिंग", "Department assignment": "विभाग आवंटन", "SLA Monitoring": "SLA निगरानी", "Deadline protection": "समय-सीमा सुरक्षा", "Escalation Engine": "एस्केलेशन इंजन", "Automatic escalation": "स्वचालित एस्केलेशन", "ACTIVE": "सक्रिय", "READY": "तैयार", "Complaints Submitted": "दर्ज की गई शिकायतें", "AI Processing": "AI प्रोसेसिंग", "Department Routing": "विभाग रूटिंग", "One intelligent workflow": "एक बुद्धिमान वर्कफ़्लो", "From citizen report to department resolution,": "नागरिक रिपोर्ट से विभागीय समाधान तक,", "CivicFix automates the complete municipal complaint lifecycle.": "CivicFix पूरी नगर शिकायत प्रक्रिया को स्वचालित करता है।", "Smart Intake": "स्मार्ट इनटेक", "Citizens submit complaints with contact details,": "नागरिक संपर्क विवरण के साथ शिकायत दर्ज कर सकते हैं,", "location, language and optional photographic evidence.": "स्थान, भाषा और वैकल्पिक फोटो प्रमाण के साथ।", "Local AI Intelligence": "स्थानीय AI इंटेलिजेंस", "Ollama analyzes the complaint and determines": "Ollama शिकायत का विश्लेषण करके", "category, department, priority, risk and recommended action.": "श्रेणी, विभाग, प्राथमिकता, जोखिम और सुझाई गई कार्रवाई निर्धारित करता है।", "Automated Resolution": "स्वचालित समाधान", "n8n routes complaints, stores records, monitors SLA deadlines,": "n8n शिकायतों को रूट करता है, रिकॉर्ड सहेजता है, SLA समय-सीमा देखता है,", "sends notifications and escalates delayed cases.": "सूचनाएं भेजता है और देरी वाले मामलों को एस्केलेट करता है।", "Report a Municipal Issue": "नगर समस्या की रिपोर्ट करें", "Submit your complaint. CivicFix AI will analyze and route it automatically.": "अपनी शिकायत दर्ज करें। CivicFix AI इसका विश्लेषण करके इसे अपने आप रूट करेगा।", "Complaint Intake": "शिकायत इनटेक", "Complete the steps below. Required fields are marked with *.": "नीचे दिए गए चरण पूरे करें। * वाले फ़ील्ड आवश्यक हैं।", "Citizen Name *": "नागरिक का नाम *", "Enter your full name": "अपना पूरा नाम दर्ज करें", "Phone Number": "फ़ोन नंबर", "Email *": "ईमेल *", "Preferred Language": "पसंदीदा भाषा", "English": "अंग्रेज़ी", "Tamil": "तमिल", "Hindi": "हिंदी", "Other": "अन्य", "Continue →": "जारी रखें →", "Complaint Description *": "शिकायत का विवरण *", "Describe the municipal problem in detail...": "नगर समस्या का विस्तार से वर्णन करें...", "Tip: Include what happened, where it happened,": "सुझाव: क्या हुआ, कहाँ हुआ,", "and how it affects citizens.": "और इससे नागरिक कैसे प्रभावित होते हैं, यह बताएं।", "Location": "स्थान", "Street, area, landmark...": "सड़क, क्षेत्र, लैंडमार्क...", "📍 GPS": "📍 GPS", "GPS location is optional.": "GPS स्थान वैकल्पिक है।", "Source": "स्रोत", "Web Portal": "वेब पोर्टल", "Mobile": "मोबाइल", "Voice": "वॉइस", "📷 Click to upload evidence": "📷 प्रमाण अपलोड करने के लिए क्लिक करें", "← Back": "← वापस", "Review →": "समीक्षा →", "Review Complaint": "शिकायत की समीक्षा करें", "Review your information before submitting.": "सबमिट करने से पहले अपनी जानकारी की समीक्षा करें।", "Citizen": "नागरिक", "Not provided": "उपलब्ध नहीं", "Submit to CivicFix AI →": "CivicFix AI को सबमिट करें →", "CivicFix AI is processing your complaint": "CivicFix AI आपकी शिकायत प्रोसेस कर रहा है", "Connecting to municipal AI workflow...": "नगर AI वर्कफ़्लो से कनेक्ट हो रहा है...", "Complaint Registered": "शिकायत दर्ज हो गई", "Your complaint has entered the CivicFix workflow.": "आपकी शिकायत CivicFix वर्कफ़्लो में दर्ज हो गई है।", "Complaint ID": "शिकायत ID", "Processing...": "प्रोसेसिंग...", "Category": "श्रेणी", "Department": "विभाग", "Priority": "प्राथमिकता", "Risk Level": "जोखिम स्तर", "AI Confidence": "AI विश्वसनीयता", "Status": "स्थिति", "Pending": "लंबित", "AI Summary": "AI सारांश", "AI analysis will appear here.": "AI विश्लेषण यहाँ दिखाई देगा।", "Recommended Action": "सुझाई गई कार्रवाई", "Department action will appear here.": "विभाग की कार्रवाई यहाँ दिखाई देगी।", "Submit Another Complaint": "एक और शिकायत दर्ज करें", "Track Your Complaint": "अपनी शिकायत ट्रैक करें", "Enter your CivicFix Complaint ID to retrieve the latest status.": "नवीनतम स्थिति देखने के लिए CivicFix शिकायत ID दर्ज करें।", "Example: CF-20260908-A7K2": "उदाहरण: CF-20260908-A7K2", "Complaint Timeline": "शिकायत टाइमलाइन", "Complaint Submitted": "शिकायत सबमिट हुई", "Complaint received by CivicFix": "CivicFix ने शिकायत प्राप्त की", "AI Analysis": "AI विश्लेषण", "Complaint classified and evaluated": "शिकायत को वर्गीकृत और मूल्यांकित किया गया", "Department Processing": "विभाग प्रोसेसिंग", "Assigned department is processing the request": "संबंधित विभाग अनुरोध को प्रोसेस कर रहा है", "Resolution": "समाधान", "Awaiting final resolution": "अंतिम समाधान की प्रतीक्षा", "Advanced AI Municipal Complaint Management": "उन्नत AI नगर शिकायत प्रबंधन", "Development By Gokul & Dharaneesh": "Gokul & Dharaneesh द्वारा विकास"}};
+
+function translatePage(lang){
+    const dict = translations[lang] || translations.en;
+
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if(dict[key] !== undefined){
+            el.textContent = dict[key];
+        }
+    });
+
+    document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
+        const key = el.getAttribute("data-i18n-placeholder");
+        if(dict[key] !== undefined){
+            el.placeholder = dict[key];
+        }
+    });
+
+    document.documentElement.lang =
+        lang === "ta" ? "ta" :
+        lang === "hi" ? "hi" : "en";
+
+    localStorage.setItem("civicfix_language", lang);
+}
+
+function changeLanguage(lang){
+    translatePage(lang);
+}
+
+
+function updateLanguageControls(lang){
+    const dict = translations[lang] || translations.en;
+    const selector = document.getElementById("siteLanguage");
+    if(selector){
+        selector.options[0].text = dict.English || "English";
+        selector.options[1].text = dict.Tamil || "Tamil";
+        selector.options[2].text = dict.Hindi || "Hindi";
+    }
+
+    const preferred = document.getElementById("language");
+    if(preferred){
+        preferred.options[0].text = dict.English || "English";
+        preferred.options[1].text = dict.Tamil || "Tamil";
+        preferred.options[2].text = dict.Hindi || "Hindi";
+        preferred.options[3].text = dict.Other || "Other";
+    }
+}
+
+const originalTranslatePage = translatePage;
+translatePage = function(lang){
+    originalTranslatePage(lang);
+    updateLanguageControls(lang);
+};
+
+
+const savedLanguage = localStorage.getItem("civicfix_language") || "en";
+const siteLanguage = document.getElementById("siteLanguage");
+if(siteLanguage){
+    siteLanguage.value = savedLanguage;
+}
+translatePage(savedLanguage);
 
 /* =========================================================
    THEME
